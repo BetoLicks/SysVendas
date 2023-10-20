@@ -1,0 +1,114 @@
+<html>
+   <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+      <div class="d-sm-flex align-items-center justify-content-between">
+         <h1 class="h3 mb-0 text-gray-800" id="lbl-titulo"><strong>Lançamento de vendas</strong></h1>
+      </div>
+   </nav>
+
+<div class="container-fluid" style="height:100%" id="lst_vendas">   
+    <div class="row">
+      <div class="btn-group col-md-5">
+        <button type="submit" class="btn btn-primary" onclick="cadastroVenda()"><i class="fa fa-plus"></i> Incluir</button>
+        <button type="submit" class="btn btn-success" onclick="listaVendas()"><i class="fa fa-refresh"></i> Atualizar</button>
+        <button type="submit" class="btn btn-secondary" onclick="relatorioVendas()"><i class="fa fa-refresh"></i> Relatório</button>
+      </div>
+    </div>
+  
+    <div class="row" id="div_edtpesquisa">   
+      <div class="col-md-12 mt-2">
+        <input style="text-transform:uppercase" type="text" id="edt_pesquisa" class="form-control" placeholder="Digite aqui (Códgio do contrato, mês de referência, valor ou a data da entrada) para pesquisar">
+      </div>
+    </div>
+
+    <div class="row">    
+      <div class="col-md-12">    
+         <table id="grd_vendas" class="table table-bordered table-hover compact table-striped" style="width:100%">
+            <thead>
+               <tr>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+               </tr>
+            </thead>
+         </table>
+      </div>
+   </div> 
+ </div>
+
+<!-- Modal CADASTRO-->
+<div class="modal fade" id="mod_cadvendas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+          <!-- TÍTULO...--> 
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Cadastro de venda</h5>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
+          </div>
+          <!-- CORPO...--> 
+          <div class="modal-body">
+
+            <div class="row">       
+              <div class="form-group col-md-12">
+                <label>Contrato</label>                       
+                <input name="ven_contrato" id="ven_contrato" class="form-control" maxlength="200">
+              </div>        
+            </div>  
+        
+            <div class="row">       
+              <div class="form-group col-md-6">
+                <label>Mês de referência</label>         
+                <select name="ven_mesref" id="ven_mesref" class="form-control"></select> 
+              </div>
+          
+              <div class="form-group col-md-6">
+                <label>Valor</label>
+                <input name="ven_valor" id="ven_valor" class="form-control" maxlength="80">
+              </div>
+            </div>  
+          </div>
+          <!-- BOTÕES...--> 
+          <div class="modal-footer">
+              <button type="submit" class="btn btn-success" onclick="gravaVenda()"><i class="fa fa-plus"></i> Gravar</button>
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<!-- Modal CADASTRO-->
+<div class="modal fade" id="mod_relvendas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
+  <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+      <div class="modal-content">
+          <!-- TÍTULO...--> 
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Relatório de vendas</h5>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
+          </div>
+          <!-- CORPO...--> 
+          <div class="modal-body"> 
+            <div class="row">       
+              <div class="form-group col-md-12">
+                <label>Mês de referência</label>         
+                <select name="ven_relmesref" id="ven_relmesref" class="form-control"></select> 
+              </div>
+            </div>
+          </div>
+          <!-- BOTÕES...--> 
+          <div class="modal-footer">
+              <button type="submit" class="btn btn-success" onclick="imprimeRelatorioVendas()"><i class="fa fa-plus"></i> Imprimir</button>
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+          </div>
+      </div>
+  </div>
+</div>
+  
+<script type="text/javascript" src="dao/controle/vendas_c.js"></script>
+
+</html>

@@ -1,0 +1,68 @@
+<html>
+  <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+    <div class="d-sm-flex align-items-center justify-content-between">
+       <h1 class="h3 mb-0 text-gray-800" id="lbl-titulo"><strong>Metas mensais</strong></h1>
+    </div>
+ </nav>
+
+<div class="container-fluid" style="height:100%" id="lst_metas">   
+    <div class="row">
+      <div class="btn-group col-md-5">
+        <button type="submit" class="btn btn-primary" onclick="cadastroMeta()"><i class="fa fa-plus"></i> Incluir</button>
+        <button type="submit" class="btn btn-success" onclick="listaMetas()"><i class="fa fa-refresh"></i> Atualizar</button>
+      </div>
+    </div>
+  
+    <div class="row">    
+      <div class="col-md-12">    
+         <table id="grd_metas" class="table table-bordered table-hover compact table-striped" style="width:100%">
+            <thead>
+               <tr>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+               </tr>
+            </thead>
+         </table>
+      </div>
+   </div> 
+ </div>
+
+<!-- Modal-->
+<div class="modal fade" id="mod_cadmetas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> 
+<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <!-- TÍTULO...--> 
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Cadastro de metas</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <!-- CORPO...--> 
+        <div class="modal-body">
+
+          <div class="row">       
+            <div class="form-group col-md-6">
+              <label>Mês de referência</label>         
+              <select name="met_mesref" id="met_mesref" class="form-control"></select> 
+            </div>
+        
+            <div class="form-group col-md-6">
+              <label>Valor</label>
+              <input name="met_valor" id="met_valor" class="form-control" maxlength="80">
+            </div>
+          </div>  
+        </div>
+        <!-- BOTÕES...--> 
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-success" onclick="gravaMeta()"><i class="fa fa-plus"></i> Gravar</button>
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="dao/controle/metas_c.js"></script>
+
+</html>
